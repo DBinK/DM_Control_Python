@@ -2,7 +2,7 @@ import math
 import time
 
 import serial
-from pydamiao.enums import DamiaoMotorType, ControlType, MotorVariable
+from pydamiao.types import DamiaoMotorType, ControlType, MotorVariable
 from pydamiao.motor import Motor, MotorControl
 
 # 创建电机对象和串口对象

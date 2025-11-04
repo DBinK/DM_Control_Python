@@ -4,7 +4,7 @@ from time import sleep
 import numpy as np
 from serial import Serial
 
-from pydamiao.enums import ControlType
+from pydamiao.types import ControlType, DamiaoMotorType, CanID
 from pydamiao.logging import logger
 from pydamiao.utils import (
     data_to_uint8s,
@@ -18,12 +18,12 @@ from pydamiao.utils import (
 
 
 class Motor:
-    def __init__(self, motor_type, slave_id, master_id):
+    def __init__(self, motor_type: DamiaoMotorType, slave_id: CanID, master_id: CanID):
         """
         define Motor object 定义电机对象
         :param motor_type: Motor type 电机类型
-        :param slave_id: CANID 电机ID
-        :param master_id: master_id 主机ID 建议不要设为0
+        :param slave_id: CANID 电机ID, 0x01 ~ 0xFF
+        :param master_id: master_id 主机ID 建议不要设为 0x00
         """
         self.Pd = float(0)
         self.Vd = float(0)
